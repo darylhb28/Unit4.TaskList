@@ -11,3 +11,11 @@ RETURNING *;
 const {rows: [user]} = await db.query(sql, [username, hashedPassword])
 return user
 }
+
+export async function getUser({username}){
+const sql = `
+SELECT * FROM users WHERE username = $1;
+`
+const {rows: [user]} = await db.query(sql, [username])
+return user
+}
