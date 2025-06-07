@@ -17,19 +17,19 @@ async function seed() {
   await createTask({
     title: "Grocery Shop",
     done: false,
-    user_Id: newUser.id
+    user_id: newUser.id
   })
 
   await createTask({
     title: "Do Laundry",
     done: false,
-    user_Id: newUser.id
+    user_id: newUser.id
   })
 
   await createTask({
     title: "Pick Up Dry Cleaning",
     done: false,
-    user_Id: newUser.id
+    user_id: newUser.id
   })
 
 }

@@ -5,6 +5,7 @@ const router = express.Router()
 export default router
 import bcrypt from "bcrypt"
 
+//POST /users/register
 router.route("/register").post(async (req, res, next)=>{
 const {username, password} = req.body
 
@@ -16,9 +17,9 @@ const newUser = await createUser({username, password})
 const token = jwt.sign({id: newUser.id, username: newUser.username}, process.env.JWT_SECRET)
 
 res.status(200).send(token)
-
 })
 
+//POST /users/login
 router.route("/login").post( async (req, res, next)=>{
 const {username, password} = req.body
 
@@ -36,5 +37,4 @@ if (!isMatch){
 
 const token = jwt.sign({id: realUserInfo.id, username: realUserInfo.username}, process.env.JWT_SECRET)
 res.status(200).send(token)
-
 })
